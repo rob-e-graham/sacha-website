@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Get Real Connection | Sacha Hoogerwerf</title>
   <meta name="description" content="Ceremonies, rites of passage, deathwalking and honest conversations. Sacha Hoogerwerf — Get Real Connection." />
+  <link rel="canonical" href="https://getrealconnection.org/" />
+  <meta name="theme-color" content="#fff8ed" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23ffd75a' stroke='%231d1b1a' stroke-width='6'/%3E%3Ctext x='50' y='63' font-family='Arial, sans-serif' font-size='38' font-weight='900' text-anchor='middle' fill='%231d1b1a'%3EGR%3C/text%3E%3C/svg%3E" />
+  <!-- Open Graph / social share preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Get Real Connection | Sacha Hoogerwerf" />
+  <meta property="og:description" content="Ceremonies, rites of passage, deathwalking and honest conversations. Sacha Hoogerwerf — Get Real Connection." />
+  <meta property="og:image" content="https://getrealconnection.org/SuperheroCelebrant.png" />
+  <meta property="og:url" content="https://getrealconnection.org/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Get Real Connection | Sacha Hoogerwerf" />
+  <meta name="twitter:description" content="Ceremonies, rites of passage, deathwalking and honest conversations. Sacha Hoogerwerf — Get Real Connection." />
+  <meta name="twitter:image" content="https://getrealconnection.org/SuperheroCelebrant.png" />
   <style>
     :root{
       --ink:#1d1b1a;--paper:#fff8ed;--cream:#f7ead8;--white:#fffdf8;--charcoal:#252120;
@@ -159,6 +172,32 @@
     .text-link{color:var(--ink);font-weight:800;border-bottom:2px solid var(--ink);padding-bottom:1px}
     .text-link:hover{background:var(--yellow)}
 
+    /* ── NAV SCROLLED STATE ── */
+    .nav.scrolled{box-shadow:0 6px 20px rgba(29,27,26,.08);border-bottom-color:rgba(29,27,26,.22)}
+    .links a:not(.button){transition:border-color .2s ease}
+    .links a.active-link:not(.button){border-color:var(--ink)}
+
+    /* ── SCROLL REVEAL ── */
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.in-view{opacity:1;transform:translateY(0)}
+    @media(prefers-reduced-motion:reduce){
+      .reveal{opacity:1;transform:none;transition:none}
+      html{scroll-behavior:auto}
+    }
+
+    /* ── VIDEO SECTION ── */
+    .video-frame{position:relative}
+    .video-frame video{cursor:pointer}
+    .video-play-badge{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;transition:opacity .25s ease}
+    .video-play-badge.hide{opacity:0}
+    .video-play-circle{width:84px;height:84px;border-radius:50%;background:var(--coral);border:2px solid var(--ink);box-shadow:var(--graphic-shadow);display:grid;place-items:center}
+    .video-play-circle svg{margin-left:4px}
+
+    /* ── BACK TO TOP ── */
+    .to-top{position:fixed;right:20px;bottom:20px;z-index:70;width:50px;height:50px;border-radius:50%;background:var(--ink);color:var(--paper);border:2px solid var(--ink);display:grid;place-items:center;box-shadow:3px 3px 0 rgba(29,27,26,.35);opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .25s ease,transform .25s ease}
+    .to-top.show{opacity:1;pointer-events:auto;transform:translateY(0)}
+    .to-top:hover{background:var(--coral);border-color:var(--ink)}
+
     /* ── RESPONSIVE ── */
     @media(max-width:1040px){
       .hero-grid,.two-col,.feature-grid,.about-grid,.contact-panel,.doula-grid{grid-template-columns:1fr}
@@ -197,14 +236,14 @@
 </head>
 <body>
 
-<nav class="nav">
+<nav class="nav" id="siteNav">
   <div class="wrap nav-inner">
     <a href="#top" class="brand"><span class="brand-mark">GR</span><span>Get Real Connection</span></a>
     <div class="links">
-      <a href="#life"><span data-lang="en">Life</span><span data-lang="nl">Leven</span></a>
-      <a href="#death"><span data-lang="en">Death</span><span data-lang="nl">Dood</span></a>
-      <a href="#deathwalker">Deathwalker</a>
-      <a href="#about"><span data-lang="en">About</span><span data-lang="nl">Over mij</span></a>
+      <a href="#life" data-section="life"><span data-lang="en">Life</span><span data-lang="nl">Leven</span></a>
+      <a href="#death" data-section="death"><span data-lang="en">Death</span><span data-lang="nl">Dood</span></a>
+      <a href="#deathwalker" data-section="deathwalker">Deathwalker</a>
+      <a href="#about" data-section="about"><span data-lang="en">About</span><span data-lang="nl">Over mij</span></a>
       <a href="#contact" class="button secondary"><span data-lang="en">Book a free chat</span><span data-lang="nl">Boek een gesprek</span></a>
     </div>
     <div class="nav-right">
@@ -261,7 +300,7 @@
   <!-- ── MEET SACHA INTRO ── -->
   <section class="section">
     <div class="wrap">
-      <div class="section-card graphic two-col">
+      <div class="section-card graphic two-col reveal">
         <div>
           <p class="eyebrow"><span data-lang="en">Meet Sacha</span><span data-lang="nl">Ontmoet Sacha</span></p>
           <div data-lang="en"><h2 class="h2">A steady person for the real stuff.</h2></div>
@@ -286,7 +325,7 @@
 
   <!-- ── LIFE ── -->
   <section class="section" id="life">
-    <div class="wrap section-card">
+    <div class="wrap section-card reveal">
       <p class="eyebrow"><span data-lang="en">Life · Ceremony · Celebration</span><span data-lang="nl">Leven · Ceremony · Viering</span></p>
       <div data-lang="en">
         <h2 class="h2">Marking the moments that matter.</h2>
@@ -336,7 +375,7 @@
 
   <!-- ── RITES OF PASSAGE FEATURE ── -->
   <section class="section feature-dark">
-    <div class="wrap feature-grid">
+    <div class="wrap feature-grid reveal">
       <div>
         <p class="eyebrow"><span data-lang="en">Rites of Passage</span><span data-lang="nl">Overgangsrituelen</span></p>
         <div data-lang="en">
@@ -352,13 +391,13 @@
           <div class="pullquote">Dit werk is beschikbaar voor ons allemaal, in elke levensfase.</div>
         </div>
       </div>
-      <div class="feature-image"><img src="Mereana_David.jpg" alt="Sacha officiating a wedding ceremony" /></div>
+      <div class="feature-image"><img src="Mereana_David.jpg" alt="Sacha officiating a wedding ceremony" loading="lazy" decoding="async" /></div>
     </div>
   </section>
 
   <!-- ── DEATH ── -->
   <section class="section" id="death">
-    <div class="wrap section-card">
+    <div class="wrap section-card reveal">
       <p class="eyebrow"><span data-lang="en">Death · Dying · Grief</span><span data-lang="nl">Dood · Sterven · Rouw</span></p>
       <div data-lang="en">
         <h2 class="h2">No one gets out alive.</h2>
@@ -385,7 +424,7 @@
   <!-- ── DEATHWALKER EXPLAINER ── -->
   <section class="section" id="deathwalker">
     <div class="wrap">
-      <div class="doula-card">
+      <div class="doula-card reveal">
         <p class="eyebrow" style="background:var(--lavender);color:var(--ink)">
           <span data-lang="en">Why I call myself a Deathwalker</span>
           <span data-lang="nl">Waarom ik mezelf een Deathwalker noem</span>
@@ -448,7 +487,7 @@
 
   <!-- ── HOW IT WORKS ── -->
   <section class="section">
-    <div class="wrap section-card">
+    <div class="wrap section-card reveal">
       <p class="eyebrow"><span data-lang="en">How it works</span><span data-lang="nl">Hoe het werkt</span></p>
       <div data-lang="en"><h2 class="h2">Simple, human, unhurried.</h2></div>
       <div data-lang="nl"><h2 class="h2">Eenvoudig, menselijk, zonder haast.</h2></div>
@@ -474,21 +513,29 @@
   </section>
 
   <!-- ── VIDEO ── -->
-  <section class="section" style="padding-bottom:0">
+  <section class="section reveal" style="padding-bottom:0">
     <div class="wrap">
-      <div style="border-radius:22px;overflow:hidden;border:2px solid var(--ink);box-shadow:var(--graphic-shadow);background:var(--blue)">
-        <video controls playsinline style="width:100%;display:block;max-height:560px;object-fit:cover">
+      <p class="eyebrow"><span data-lang="en">Watch</span><span data-lang="nl">Bekijk</span></p>
+      <div data-lang="en"><h2 class="h2" style="margin-bottom:20px">A short introduction from Sacha.</h2></div>
+      <div data-lang="nl"><h2 class="h2" style="margin-bottom:20px">Een korte introductie van Sacha.</h2></div>
+      <div class="video-frame" style="border-radius:22px;overflow:hidden;border:2px solid var(--ink);box-shadow:var(--graphic-shadow);background:var(--blue)" onclick="var v=this.querySelector('video');if(v.paused){v.play();}">
+        <video id="introVideo" controls playsinline preload="metadata" poster="video-poster.jpg" style="width:100%;display:block;max-height:560px;object-fit:cover">
           <source src="Sacha_Website_Intro_Video_2.mp4" type="video/mp4">
           <p style="padding:40px;color:var(--ink);font-weight:700;text-align:center">Your browser does not support video playback.</p>
         </video>
+        <div class="video-play-badge" id="videoPlayBadge">
+          <span class="video-play-circle">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M6 4L20 12L6 20V4Z" fill="#1d1b1a"/></svg>
+          </span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ── ABOUT ── -->
   <section class="section" id="about">
-    <div class="wrap about-grid">
-      <div class="portrait"><img src="FuGdSx0saFJAZzpSLhHbpEL9qo.jpeg" alt="Sacha Hoogerwerf" /></div>
+    <div class="wrap about-grid reveal">
+      <div class="portrait"><img src="FuGdSx0saFJAZzpSLhHbpEL9qo.jpeg" alt="Sacha Hoogerwerf" loading="lazy" decoding="async" /></div>
       <div class="section-card">
         <p class="eyebrow"><span data-lang="en">About Sacha</span><span data-lang="nl">Over Sacha</span></p>
         <div data-lang="en">
@@ -518,7 +565,7 @@
 
   <!-- ── TESTIMONIALS ── -->
   <section class="section">
-    <div class="wrap section-card">
+    <div class="wrap section-card reveal">
       <p class="eyebrow"><span data-lang="en">In their own words</span><span data-lang="nl">In hun eigen woorden</span></p>
       <div data-lang="en"><h2 class="h2">Held with care.</h2></div>
       <div data-lang="nl"><h2 class="h2">Met zorg omarmd.</h2></div>
@@ -545,7 +592,7 @@
 
   <!-- ── RESOURCES ── -->
   <section class="section">
-    <div class="wrap section-card">
+    <div class="wrap section-card reveal">
       <p class="eyebrow"><span data-lang="en">Useful links</span><span data-lang="nl">Handige links</span></p>
       <div data-lang="en"><h2 class="h2">Helpful places to keep exploring.</h2></div>
       <div data-lang="nl"><h2 class="h2">Nuttige plekken om verder te verkennen.</h2></div>
@@ -577,7 +624,7 @@
   <!-- ── CONTACT ── -->
   <section class="section" id="contact">
     <div class="wrap">
-      <div class="contact-panel">
+      <div class="contact-panel reveal">
         <div>
           <p class="eyebrow"><span data-lang="en">Start here</span><span data-lang="nl">Begin hier</span></p>
           <div data-lang="en">
@@ -607,6 +654,10 @@
 
 </main>
 
+<button class="to-top" id="toTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="#fff8ed" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
 <footer>
   <div class="wrap foot">
     <div>
@@ -629,6 +680,55 @@
   var saved; try{saved=localStorage.getItem('grc-lang');}catch(e){}
   var nl=navigator.language&&navigator.language.toLowerCase().startsWith('nl');
   setLang(saved||(nl?'nl':'en'));
+
+  // ── Scroll reveal ──
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && revealEls.length) {
+    var revealObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -60px 0px'});
+    revealEls.forEach(function(el){ revealObserver.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in-view'); });
+  }
+
+  // ── Nav: scrolled shadow + active section highlight ──
+  var siteNav = document.getElementById('siteNav');
+  var navLinks = document.querySelectorAll('.links a[data-section]');
+  var trackedSections = Array.prototype.map.call(navLinks, function(a){
+    return document.getElementById(a.getAttribute('data-section'));
+  }).filter(Boolean);
+
+  function onScroll(){
+    if (siteNav) siteNav.classList.toggle('scrolled', window.scrollY > 12);
+    var toTopBtn = document.getElementById('toTop');
+    if (toTopBtn) toTopBtn.classList.toggle('show', window.scrollY > 700);
+
+    var current = null;
+    trackedSections.forEach(function(sec){
+      var rect = sec.getBoundingClientRect();
+      if (rect.top <= 140 && rect.bottom >= 140) current = sec.id;
+    });
+    navLinks.forEach(function(a){
+      a.classList.toggle('active-link', a.getAttribute('data-section') === current);
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // ── Video: hide play badge once playing, show again when paused/ended ──
+  var introVideo = document.getElementById('introVideo');
+  var playBadge = document.getElementById('videoPlayBadge');
+  if (introVideo && playBadge) {
+    introVideo.addEventListener('play', function(){ playBadge.classList.add('hide'); });
+    introVideo.addEventListener('pause', function(){ playBadge.classList.remove('hide'); });
+    introVideo.addEventListener('ended', function(){ playBadge.classList.remove('hide'); });
+  }
 </script>
 </body>
 </html>
